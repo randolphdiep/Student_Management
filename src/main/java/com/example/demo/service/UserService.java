@@ -16,12 +16,17 @@ public class UserService {
 		usRepo.save(user);
 	}
 	
-	public void saveById(int userId, User userUpdated) {
-		User user = usRepo.findById(userId).get();
-		user.setUserName(userUpdated.getUserName());
-		user.setPassword(userUpdated.getPassword());
-		usRepo.save(user);
-	}
+//	public void saveById(int userId, User userUpdated) {
+//		User user = usRepo.findById(userId).get();
+//		user.setUserName(userUpdated.getUserName());
+//		user.setPassword(userUpdated.getPassword());
+//		usRepo.save(user);
+//	}
+	
+//	public void saveById(int userId) {
+//		User user = usRepo.findById(userId).get();
+//		usRepo.save(user);
+//	}
 	
 	public User findById(int id) {
 		User user = usRepo.findById(id).get();
@@ -47,7 +52,7 @@ public class UserService {
 				return user;
 			}
 		}
-		return new User();
+		return null;
 	}
 	
 	public boolean isSamePassword(String firstPass, String secondPass) {

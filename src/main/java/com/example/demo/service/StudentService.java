@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,6 +56,29 @@ public class StudentService {
 		}
 		return students;		
 	}
+	
+	public List<Student> getByCodeAndName(String code, String name){
+		List<Student> students = new ArrayList<>();
+		for (Student student : studentRepo.findAll()) {
+			if (student.getStudentCode().toLowerCase().contains(code.toLowerCase()) &&
+				student.getStudentName().toLowerCase().contains(name.toLowerCase())) {
+				students.add(student);
+			}
+		}
+		return students;
+	}
+	
+//	public static String getRandomNumberString() {
+//	    Random rnd = new Random();
+//	    int number = rnd.nextInt(999);
+//	    return String.format("%03d", number);
+//	}
+//	
+//	public String generateStCode() {
+//		return "STU" + getRandomNumberString();
+//	}
+	
+	
 //	public List<User> userSearcher(String firstName, String lastName){
 //	if (firstName != null && lastName != null) return getByFullName(firstName, lastName);
 //	else if (firstName == null && lastName != null) return getByLastName(lastName);

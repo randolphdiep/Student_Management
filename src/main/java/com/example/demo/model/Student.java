@@ -29,6 +29,12 @@ public class Student {
 		this.studentName = studentName;
 		this.studentCode = studentCode;
 	}
+	
+	public Student(String studentCode, String studentName) {
+		super();
+		this.studentName = studentName;
+		this.studentCode = studentCode;
+	}
 
     public int getStudentId() {
 		return studentId;

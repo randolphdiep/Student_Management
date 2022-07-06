@@ -22,17 +22,24 @@ public class User {
 	
 	public User() {}
 	
-	public User(String userName, String password) {
-		super();
-		this.userName = userName;
-		this.password = password;
-	}
+//	public User(String userName, String password) {
+//		super();
+//		this.userName = userName;
+//		this.password = password;
+//	}
 
 
 	public int getUserId() {
 		return userId;
 	}
 
+	public User(int userId, String userName, String password) {
+	super();
+	this.userId = userId;
+	this.userName = userName;
+	this.password = password;
+}
+	
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}

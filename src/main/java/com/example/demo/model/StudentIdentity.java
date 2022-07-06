@@ -48,7 +48,6 @@ public class StudentIdentity implements Serializable {
         return studentId == that.studentId;
     }
 	
-
     @Override
     public int hashCode() {
         return Objects.hash(infoId, studentId);
