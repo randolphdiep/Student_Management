@@ -40,11 +40,11 @@ public class StudentInfoService {
 	public List<StudentInfo> searchByDate(LocalDate dateOfBirth) {
 		List<StudentInfo> studentInfos = new ArrayList<StudentInfo>();
 		for (StudentInfo studentInfo : studentInfoRepo.findAll()) {
-			if (studentInfo.getDateOfBirth().equals(dateOfBirth)){
-				studentInfos.add(studentInfo);
-			}
+			if(studentInfo.getDateOfBirth() != null)
+				if (studentInfo.getDateOfBirth().equals(dateOfBirth)){
+					studentInfos.add(studentInfo);
+				}
 		}
 		return studentInfos;		
-	}
-	
+	}	
 }

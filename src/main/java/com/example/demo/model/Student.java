@@ -23,7 +23,7 @@ public class Student {
 	
 	public Student() {}
 	
-	public Student(int studentId ,String studentName, String studentCode) {
+	public Student(int studentId ,String studentCode,String studentName) {
 		super();
 		this.studentId = studentId;
 		this.studentName = studentName;

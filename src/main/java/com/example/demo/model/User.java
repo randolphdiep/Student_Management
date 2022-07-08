@@ -17,7 +17,7 @@ public class User {
 	private int userId;
 	@Column(name = "user_name" ,nullable = false, length = 20)
 	private String userName;
-	@Column(nullable = false, length = 15)
+	@Column(nullable = false, length = 64)
 	private String password;
 	
 	public User() {}
@@ -28,17 +28,16 @@ public class User {
 //		this.password = password;
 //	}
 
-
-	public int getUserId() {
-		return userId;
-	}
-
 	public User(int userId, String userName, String password) {
 	super();
 	this.userId = userId;
 	this.userName = userName;
 	this.password = password;
 }
+	
+	public int getUserId() {
+		return userId;
+	}
 	
 	public void setUserId(int userId) {
 		this.userId = userId;

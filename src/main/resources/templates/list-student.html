@@ -6,6 +6,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Student List</title>
 <link rel="stylesheet" type="text/css" th:href="@{CSS/bootstrap.css}">
+<link rel="icon" th:href="@{Images/smalllogo.png}">
 <link rel="stylesheet" type="text/css" th:href="@{CSS/form.css}">
 <link rel="stylesheet" type="text/css" th:href="@{CSS/bootstrapmin.css}">
 </head>
@@ -20,9 +21,12 @@
 			</div>
 			<div class="col-lg-11 ">
 				<div class="row align-items-center float-right">
-					<h5 class="welcome">Welcome, Randolph</h5>
+					<h5 class="welcome">Welcome,
+						[[${#request.userPrincipal.principal.username}]]</h5>
 					<h5>
-						<a class="nav-link" href="/logout">Logout</a>
+						<form th:action="@{/logout}" method="post">
+							<a class="logoutLink" onclick="logoutConfirm(this)">Logout</a> 
+						</form>
 					</h5>
 				</div>
 			</div>
@@ -34,7 +38,7 @@
 				<label for="studentCode" class="col-sm-4 col-form-label">Student
 					Code:</label>
 				<div class="col-sm-6">
-					<input type="text" class="form-control" name="code">
+					<input type="text" class="form-control" name="code" maxlength="10">
 				</div>
 				<div class="col-sm-2"></div>
 			</div>
@@ -43,7 +47,7 @@
 					Name:</label>
 				<div class="col-sm-6">
 					<input type="text" class="form-control" id="studentName"
-						name="name">
+						name="name" maxlength="20">
 				</div>
 				<div class="col-sm-2">
 					<button onclick="document.location='/add'" type="button"
@@ -54,7 +58,7 @@
 				<label for="birthday" class="col-sm-4 col-form-label">Birthday:</label>
 				<div class="col-sm-6">
 					<input type="date" class="form-control" id="birthday"
-						name="birthday">
+						name="birthday" maxlength="10">
 				</div>
 				<div class="col-sm-2">
 					<button type="submit" class="btn btn-primary mb-2">Search</button>
@@ -90,8 +94,18 @@
 							<td th:text="${student.score}" />
 							<td>
 								<div class="row">
-									<a class="nav-link" href="#">Edit</a> <a class="nav-link"
-										href="#">Delete</a>
+									<form id="edit" th:action="@{/edit}" method="GET">
+										<a class="editLink"
+											onclick="this.closest('form').submit();return false;">
+											Edit</a> <input type="hidden" th:value="${student.id}"
+											name="editStudentId">
+									</form>
+									&#160;-&#160;
+									<form th:action="@{/delete}" method="GET">
+										<a class="deleteLink" onclick="deleteConfirm(this)">
+											Delete</a> <input type="hidden" th:value="${student.id}"
+											name="deleteStudentId">
+									</form>
 								</div>
 							</td>
 						</tr>
@@ -106,14 +120,5 @@
 <script th:src="@{JS/jquery-3.5.1.js}"></script>
 <script th:src="@{JS/jquery.dataTables.min.js}"></script>
 <script th:src="@{JS/dataTables.bootstrap4.min.js}"></script>
-<script>
-	$(document).ready(function() {
-		$('#example').DataTable({
-			searching : false,
-			lengthMenu : false,
-			pagingType : 'full_numbers',
-			lengthChange : false,
-			info : false
-		});
-	});
-</script>
+<script th:src="@{JS/screenlist.js}"></script>
+

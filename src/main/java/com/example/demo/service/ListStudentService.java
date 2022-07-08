@@ -73,8 +73,9 @@ public class ListStudentService {
 						studentInfo.getAverageScore()));
 			}
 		}
-		if (birthday != "")
+		if (birthday != "") {
 			searchedListStudent = searchByDate(searchedListStudent, birthday);
+		}
 		return searchedListStudent;
 	}
 

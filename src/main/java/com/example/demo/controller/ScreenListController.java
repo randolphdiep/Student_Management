@@ -19,8 +19,7 @@ public class ScreenListController {
 	public String showList(Model model) {
 		List<ListStudent> list = listStudentService.findAll();
 		model.addAttribute("students", list);
-		model.addAttribute("listStudent", new ListStudent());
-		return "listStudent";
+		return "list-student";
 	}
 
 //	@GetMapping(value="/searchField")
@@ -42,11 +41,7 @@ public class ScreenListController {
 	    	
 		}
 		model.addAttribute("students", list);
-		return "listStudent";
+		return "list-student";
 	}
 	
-	@GetMapping(value = "/account-created")
-	public String search3() {
-		return "account-created";
-	}
 }

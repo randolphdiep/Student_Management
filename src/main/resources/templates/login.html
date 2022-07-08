@@ -6,6 +6,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Login Form</title>
 <link rel="stylesheet" type="text/css" th:href="@{CSS/bootstrap.css}">
+<link rel="icon" th:href="@{Images/smalllogo.png}">
 <link rel="stylesheet" type="text/css" th:href="@{CSS/form.css}">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -14,7 +15,8 @@
 	<img th:src="@{Images/logo.png}" id="logo" class="mx-auto d-block"
 		alt="Logo">
 	<div class="signup-form">
-		<form th:action="@{/login/check}" th:object="${account}" method="POST">
+		<form th:action="@{/login}" method="POST">
+<!--		<form th:action="@{/login}" th:object="${account}" method="POST">-->
 			<h2>LOGIN</h2>
 
 			<div class="form-group">
@@ -31,7 +33,7 @@
 						type="text" class="form-control" name="username"
 						placeholder="Username" maxlength="20"
 						pattern="[a-zA-Z0-9!@#$&()\\-`.+,/]*" required="required"
-						th:field="${account.userName}">
+						>
 				</div>
 			</div>
 			<div class="form-group">
@@ -40,7 +42,7 @@
 						type="password" class="form-control" name="password"
 						placeholder="Password" maxlength="15" minlength="6"
 						pattern="[a-zA-Z0-9!@#$&()\\-`.+,/]*" required="required"
-						th:field="${account.password}">
+						>
 				</div>
 			</div>
 			<div class="row">

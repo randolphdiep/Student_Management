@@ -116,5 +116,11 @@ public class MyRunner implements CommandLineRunner {
     	
 //    	List<ListStudent> list = listStudentService.searchListStudent(null, "n");
 //    	list.forEach(student -> System.out.println(student.toString()));
+    	
+//    	LocalDate date = LocalDate.parse("2022-06-08");
+//    	List<StudentInfo> list = studentInfoService.searchByDate(date);
+//    	String date = "2022-06-08";
+//    	List<ListStudent> list = listStudentService.searchByBirthday(date);
+//    	list.forEach(student -> System.out.println(student.toString()));
     }
 }
